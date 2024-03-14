@@ -9,9 +9,16 @@ public class GeneralTestRecommendation implements Consultation {
         this.bp = bp;
     }
 
-    public int bloodTest(int amtOfBlood) {
-        int quantityOfBlood=amtOfBlood;
-        return quantityOfBlood;
+    public String bloodTest(int amtOfBlood) {
+        System.out.println("Amount Of Blood " +amtOfBlood);
+        int hbPercentage=9;
+        if(hbPercentage<10){
+            return "Low heamoglobin Percent.";
+        }else if(hbPercentage>=10 && hbPercentage<14){
+            return "Normal Range";
+        }else{
+            return "Doctor Consultation is Required";
+        }
 
     }
 

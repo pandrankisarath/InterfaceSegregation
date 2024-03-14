@@ -8,7 +8,7 @@ public  class PatientHealth  {
 
 
     public double CalculateBMI(double height , double weight) {
-        bmi= weight /(height*2);
+        bmi= weight /(height*height);
         System.out.println("BMI Is " +bmi);
         return bmi;
     }

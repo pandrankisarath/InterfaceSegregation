@@ -1,50 +1,57 @@
 package cardiologyService;
 
 public class HealthCareTest {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    PatientDetails patientDetails = new PatientDetails("Priya", 23, "Female", "Fever",
-            "1234567890", 500);
-        PatientHealth patientHealth=new PatientHealth();
+        PatientDetails patientDetails = new PatientDetails("Priya", 23, "Female", "Heart" ,
+                "1234567890", 500);
+        PatientHealth patientHealth = new PatientHealth();
         System.out.println(patientDetails);
-        patientHealth.CalculateBMI(3.0,55);
+        patientHealth.CalculateBMI(3.0, 55);
         String diseaseType = patientDetails.getDisease();
-        System.out.println(diseaseType);
+        System.out.println("Disease Type is : " +diseaseType);
+        Consultation testRecommendation;
 
-        TestRecommendation test=new TestRecommendation();
-        test.CreateRecommendation("Fever");
-
-
-        FeverTestRecommendation fever=new FeverTestRecommendation(14999,200000,101);
-        String bodyTemperature=fever.temperatureCheck(101);
-        System.out.println(bodyTemperature);
-        String typeOfTest = fever.recommendTest();
-        System.out.println(typeOfTest);
-        int quantityOfBlood= fever.bloodTest(20);
-        System.out.println(quantityOfBlood);
-
-        ThyroidTestRecommendation thyroid=new ThyroidTestRecommendation(2.0,100,4);
-        int quantityOfBlood1=thyroid.bloodTest(20);
-        System.out.println(quantityOfBlood1);
-        String typeOfTest1=thyroid.recommendTest();
-        System.out.println(typeOfTest1);
-
-        HeartTestRecommendation heart=new HeartTestRecommendation(75,120);
-        int quantityOfBlood2= heart.bloodTest(20);
-        System.out.println(quantityOfBlood2);
-        String typeOfTest2=heart.recommendTest();
-        System.out.println(typeOfTest2);
-        String glucoseTest= heart.glucoseTest(150);
-        System.out.println(glucoseTest);
-
-        GeneralTestRecommendation generalTest=new GeneralTestRecommendation(80,120);
-        int quantityOfBlood3= generalTest.bloodTest(20);
-        System.out.println(quantityOfBlood3);
-        String typeOfTest3=generalTest.recommendTest();
-        System.out.println(typeOfTest3);
-        TestRecommendation testRecommendation=new TestRecommendation();
-        testRecommendation.CreateRecommendation(diseaseType);
+        if (diseaseType.equalsIgnoreCase("Fever")) {
+            testRecommendation = new FeverTestRecommendation(14999, 200000, 101);
+        } else if (diseaseType.equalsIgnoreCase("Thyroid")) {
+            testRecommendation = new ThyroidTestRecommendation(2.0, 100, 4);
+        } else if (diseaseType.equalsIgnoreCase("Heart")) {
+            testRecommendation = new HeartTestRecommendation(75, 120);
+        } else {
+            testRecommendation = new GeneralTestRecommendation(80, 120);
+        }
 
 
+        if (testRecommendation instanceof FeverTestRecommendation) {
+            String typeOfTest = testRecommendation.recommendTest();
+            System.out.println(typeOfTest);
+            String quantityOfBlood = ((FeverTestRecommendation) testRecommendation).bloodTest(20);
+            String temperature=((FeverTestRecommendation) testRecommendation).temperatureCheck(100);
+            System.out.println(temperature);
+            System.out.println(quantityOfBlood);
+        }
+
+        if (testRecommendation instanceof HeartTestRecommendation) {
+            String typeOfTest1 = testRecommendation.recommendTest();
+            System.out.println(typeOfTest1);
+            String quantityOfBlood1 = ((HeartTestRecommendation) testRecommendation).bloodTest(20);
+            System.out.println(quantityOfBlood1);
+            String glucose = ((HeartTestRecommendation) testRecommendation).glucoseTest(120);
+            System.out.println(glucose);
+        }
+        if (testRecommendation instanceof ThyroidTestRecommendation) {
+            String typeOfTest2 = testRecommendation.recommendTest();
+            System.out.println(typeOfTest2);
+            String quantityOfBlood2 = ((ThyroidTestRecommendation) testRecommendation).bloodTest(20);
+            System.out.println(quantityOfBlood2);
+        }
+
+        if (testRecommendation instanceof GeneralTestRecommendation) {
+            String typeOfTest3 = testRecommendation.recommendTest();
+            System.out.println(typeOfTest3);
+            String quantityOfBlood3 = ((GeneralTestRecommendation) testRecommendation).bloodTest(20);
+            System.out.println(quantityOfBlood3);
+        }
     }
 }

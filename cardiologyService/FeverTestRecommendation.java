@@ -11,6 +11,19 @@ public class FeverTestRecommendation implements Consultation {
         this.temperature=temperature;
     }
 
+    public String bloodTest(int amtOfBlood) {
+        System.out.println("Amount of Blood " +amtOfBlood);
+        int hbPercentage=9;
+        if(hbPercentage<=10){
+            return "Low heamoglobin Percent.";
+        }else if(hbPercentage>=10 && hbPercentage<=14){
+            return "Normal Range";
+        }else{
+            return "Doctor Consultation is Required";
+        }
+
+    }
+
     public String temperatureCheck(int temperature) {
         if (temperature >= 98 && temperature < 100) {
             System.out.println("low fever");
@@ -33,13 +46,4 @@ public class FeverTestRecommendation implements Consultation {
         }
     }
 
-    @Override
-    public int bloodTest(int amtOfBlood) {
-        System.out.println(amtOfBlood);
-        int hbPercentage=13;
-        return hbPercentage;
-//        int quantityOfBlood=amtOfBlood;
-//        return quantityOfBlood;
-
-    }
 }

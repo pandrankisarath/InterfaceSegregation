@@ -9,10 +9,16 @@ public class HeartTestRecommendation implements Consultation {
         this.ECG = ECG;
     }
 
-    public int bloodTest(int amtOfBlood) {
-        int quantityOfBlood=amtOfBlood;
-        return quantityOfBlood;
-
+    public String bloodTest(int amtOfBlood) {
+        System.out.println("Amount of Blood " +amtOfBlood);
+        int hbPercentage=9;
+        if(hbPercentage<=10){
+            return "Low heamoglobin Percent.";
+        }else if(hbPercentage>=10 && hbPercentage<=14){
+            return "Normal Range";
+        }else{
+            return "Doctor Consultation is Required";
+        }
     }
 
     @Override
@@ -24,7 +30,7 @@ public class HeartTestRecommendation implements Consultation {
         }else if(ECG>130){
             return "High Abnormal ECG";
         }else{
-            return "";
+            return "Over pumps the Blood flow";
         }
     }
 
@@ -34,7 +40,7 @@ public class HeartTestRecommendation implements Consultation {
         }else if(bloodSugarLevel>140 && bloodSugarLevel<=199){
             return "Diagnosed with PreDiabetes";
         }else{
-            return "Diagnosed With Diabates,Insulin Is recommended";
+            return "Diagnosed With Diabetes,Insulin Is recommended";
         }
     }
 }
