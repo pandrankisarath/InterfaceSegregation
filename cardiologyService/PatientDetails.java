@@ -1,4 +1,4 @@
-package HealthcaremodelPackage;
+package cardiologyService;
 
 public class PatientDetails {
     private String name;
@@ -7,6 +7,8 @@ public class PatientDetails {
     private String disease;
     private String mobileNum;
     private int consultanceFee;
+
+
 
     public PatientDetails(String name, int age, String gender, String disease, String mobileNum, int consultanceFee) {
         this.name = name;

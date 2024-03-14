@@ -1,6 +1,6 @@
-package HealthcaremodelPackage;
+package cardiologyService;
 
-public abstract class PatientHealth {
+public  class PatientHealth  {
     private double height;
     private double weight;
     private double bmi;
@@ -8,8 +8,8 @@ public abstract class PatientHealth {
 
 
     public double CalculateBMI(double height , double weight) {
-        bmi= weight /(height*2);
+        bmi= weight /(height*height);
+        System.out.println("BMI Is " +bmi);
         return bmi;
     }
-    public abstract double bloodTest();
 }
