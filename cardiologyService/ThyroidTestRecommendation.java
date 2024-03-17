@@ -11,9 +11,9 @@ public class ThyroidTestRecommendation implements Consultation {
         this.tsh = tsh;
     }
 
-    public String bloodTest(int amtOfBlood) {
+    public String bloodTest(int amtOfBlood,int hbPercentage) {
         System.out.println("Amount of Blood " +amtOfBlood);
-        int hbPercentage=9;
+       // int hbPercentage=9;
         if(hbPercentage<=10){
             return "Low hemoglobin Percent.";
         }else if(hbPercentage>=10 && hbPercentage<=14){

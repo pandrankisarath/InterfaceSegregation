@@ -11,9 +11,9 @@ public class FeverTestRecommendation implements Consultation {
         this.temperature=temperature;
     }
 
-    public String bloodTest(int amtOfBlood) {
+    public String bloodTest(int amtOfBlood,int hbPercentage) {
         System.out.println("Amount of Blood " +amtOfBlood);
-        int hbPercentage=9;
+        //int hbPercentage=11;
         if(hbPercentage<=10){
             return "Low heamoglobin Percent.";
         }else if(hbPercentage>=10 && hbPercentage<=14){
@@ -24,7 +24,7 @@ public class FeverTestRecommendation implements Consultation {
 
     }
 
-    public String temperatureCheck(int temperature) {
+    public String temperatureCheck(double temperature) {
         if (temperature >= 98 && temperature < 100) {
             System.out.println("low fever");
             return "low fever";
@@ -39,7 +39,7 @@ public class FeverTestRecommendation implements Consultation {
     public String recommendTest() {
         if(WBC<15000 && plateletCount<250000){
             return "Malaria Fever is Attacked";
-        }else if(WBC<5000 && plateletCount<150000){
+        }else if(WBC<50000 && plateletCount<150000){
             return "Dengue Fever Is Attacked";
         }else{
             return "Typhoid Fever Is Attacked";

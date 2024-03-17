@@ -2,5 +2,5 @@ package cardiologyService;
 
 public interface Consultation {
      String recommendTest();
-      String bloodTest(int amtOfBlood);
+      String bloodTest(int amtOfBlood,int hbPercentage);
 }
